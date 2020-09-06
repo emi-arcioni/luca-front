@@ -1,0 +1,7 @@
+{
+  "name": "luca-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -22,7 +22,7 @@ export class StudentDetailPage implements OnInit {
   }
 
   ngOnInit() {
-    if (this.sub) return;
+    if (this.sub) this.sub.unsubscribe();
 
     this.sub = this.data.getCurrentStudent().subscribe(student => {
       if (!student) {
@@ -32,6 +32,11 @@ export class StudentDetailPage implements OnInit {
 
       this.student = student;
     });
+  }
+
+  gotoDetail(item) {
+    this.data.assignment = item;
+    this.navController.navigateForward("/assignment-detail");
   }
 
 }

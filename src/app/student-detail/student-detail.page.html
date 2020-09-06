@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button text="Estudiantes"></ion-back-button>
+      <ion-back-button text="Volver"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -29,7 +29,7 @@
         </p>
       </div>
 
-      <ion-chip *ngFor="let assignment of student?.assignments">
+      <ion-chip *ngFor="let assignment of student?.assignments" (click)="gotoDetail(assignment)">
         <ion-label>{{ assignment.name }}</ion-label>
       </ion-chip>
       

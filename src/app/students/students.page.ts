@@ -14,6 +14,8 @@ export class StudentsPage {
 
   public students:Student[];
   private page:number = 1;
+  private page_copy:number;
+  private query_string:string;
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
 
@@ -41,15 +43,15 @@ export class StudentsPage {
     return null;
   }
 
-  loadData(event) {
+  loadData(event?) {
     this.page++;
-    this.requests.callStudents(this.page).subscribe(response => {
+    this.requests.callStudents(this.page, this.query_string).subscribe(response => {
       if (response.length) {
         this.students = this.students.concat(response);
       } else {
         this.infiniteScroll.disabled = true;
       }
-      event.target.complete();
+      if (event) event.target.complete();
     });
   }
 
@@ -59,6 +61,15 @@ export class StudentsPage {
   }
 
   search(event) {
-    console.log(event.detail.value);
+    this.query_string = event.detail.value;
+    if (this.query_string) {
+      this.page_copy = this.page;
+      this.page = 0;
+    } else {
+      this.page = this.page_copy - 1;
+    }
+    this.students = [];
+    this.infiniteScroll.disabled = false;
+    this.loadData();
   }
 }

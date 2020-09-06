@@ -12,6 +12,10 @@ const routes: Routes = [
         loadChildren: () => import('../students/students.module').then(m => m.StudentsPageModule)
       },
       {
+        path: 'videos',
+        loadChildren: () => import('../videos/videos.module').then( m => m.VideosPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/students',
         pathMatch: 'full'

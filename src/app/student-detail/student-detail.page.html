@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Estudiantes"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="{{ student?.thumbnail }}" />
+    <ion-card-header>
+      <ion-card-title>{{ student?.name.first }} {{ student?.name.last }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> 
+
+      <div class="ion-margin-bottom">
+        <p>
+          <ion-icon name="mail-outline"></ion-icon>
+          {{ student?.email }}
+        </p>
+        <p>
+          <ion-icon name="call-outline"></ion-icon> 
+          {{ student?.phone_number }}
+        </p>
+        <p>
+          <ion-icon name="home-outline"></ion-icon> 
+          {{ student?.address }}
+        </p>
+      </div>
+
+      <ion-chip *ngFor="let assignment of student?.assignments">
+        <ion-label>{{ assignment.name }}</ion-label>
+      </ion-chip>
+      
+    </ion-card-content>
+  </ion-card>
+</ion-content>

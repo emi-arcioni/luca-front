@@ -8,6 +8,8 @@ import { AssignmentDetailPageRoutingModule } from './assignment-detail-routing.m
 
 import { AssignmentDetailPage } from './assignment-detail.page';
 
+import { TrustUrlPipe } from '../trust-url.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,7 @@ import { AssignmentDetailPage } from './assignment-detail.page';
     IonicModule,
     AssignmentDetailPageRoutingModule
   ],
-  declarations: [AssignmentDetailPage]
+  declarations: [AssignmentDetailPage, TrustUrlPipe],
+  exports: [TrustUrlPipe]
 })
 export class AssignmentDetailPageModule {}

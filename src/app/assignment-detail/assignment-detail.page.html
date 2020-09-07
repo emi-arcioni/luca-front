@@ -8,18 +8,19 @@
 </ion-header>
 
 <ion-content>
-    <ion-card *ngFor="let item of assignment?.videos" (click)="playVideo(item)">
-      <ion-card-header>
-        <ion-card-title>{{ item.name }}</ion-card-title>
-      </ion-card-header>
+    <ion-card *ngFor="let item of assignment?.videos">
+      <video preload="true" controls="true">
+        <source [src]="item.url | trustUrl" type='video/mp4'>
+      </video>
+
       <ion-card-content>
         <ion-grid>
           <ion-row>
             <ion-col>
-              {{ item.duration }}
+              <strong>{{ item.name }}</strong>
             </ion-col>
             <ion-col class="ion-text-end">
-              <ion-icon name="play"></ion-icon>
+              {{ item.duration }}
             </ion-col>
           </ion-row>
         </ion-grid>

@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiProvider } from './api.provider';
-import { VideoPlayer } from '@ionic-native/video-player/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +24,6 @@ import { VideoPlayer } from '@ionic-native/video-player/ngx';
     StatusBar,
     SplashScreen,
     ApiProvider,
-    VideoPlayer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

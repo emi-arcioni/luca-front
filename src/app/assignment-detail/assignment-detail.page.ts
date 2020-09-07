@@ -3,7 +3,6 @@ import { Assignment } from '../assignment.model';
 import { Subscription } from 'rxjs';
 import { DataParamsService } from '../data-params.service';
 import { NavController } from '@ionic/angular';
-import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { Video } from '../video.model';
 
 @Component({
@@ -18,8 +17,7 @@ export class AssignmentDetailPage implements OnInit {
 
   constructor(
     private data: DataParamsService,
-    private navController: NavController,
-    private videoPlayer: VideoPlayer
+    private navController: NavController
   ) { }
 
   ngOnInit() {
@@ -32,14 +30,6 @@ export class AssignmentDetailPage implements OnInit {
       }
 
       this.assignment = assignment;
-    });
-  }
-
-  playVideo(video:Video) {
-    this.videoPlayer.play(video.url).then(() => {
-      console.log('video completed');
-    }).catch(err => {
-      console.log(err);
     });
   }
 

@@ -12,7 +12,7 @@ This App was made for demonstrative purposes.
 1. (Optional) In case that you don't have previously installations of Ionic CLI
 
     ```bash
-        $ npm install -g @ionic/cli
+    $ npm install -g @ionic/cli
     ```
 
 1. Clone the repository into your local environment 
